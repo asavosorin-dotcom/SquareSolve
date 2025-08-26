@@ -12,55 +12,60 @@
 #include "solveCom.h"
 
 //getopts
+//make
+//WSL
+//g++, warnings
 
 int main(int argc, char *argv[])
 {
     printf(CYAN "Solving square equations!!!\n\n" RESET);
+    int comm = 0;
 
     int opt = 0;
 
     while ((opt = getopt(argc, argv, "st")) != -1) {
         switch (opt) {
-            
+
             case 't':
-                testRun();
+            TestsolveSquare();
                 break;
 
         }
+
     }
     
+    printf("\n\nNew equation: Enter\n");
+    printf("To the end: " BLUE "e" RESET "\n\n");
 
-    if (argc != 4){
-        printf("Invalif numbers of arguments\n");
-    } else {
-        solveCom(argv); // Функция, которая запускает квадратку с аргументами из командной строки
+    comm = clear_input_buffer();
 
-        printf("\n\n");
-    }
+    // if (argc != 4){
+    //     printf("Invalif numbers of arguments\n");
+    // } else {
+    //     solveCom(argv); // Функция, которая запускает квадратку с аргументами из командной строки
+
+    //     printf("\n\n");
+    // }
      
 
     //atoi
 
     //error, choose option
 
-    int comm = 0;
     while (comm != 'e'){ // Решает уравнения, пока не EOF
-        solveSquare();   // Решение квадратного уравнения
-        // printf("Enter to continue");
-
-        printf("\n\n");
-        
-        printf("New equation: Enter\n");
-        printf("To the end: " BLUE "e" RESET "\n\n");
-
-        comm = clear_input_buffer();   // Получает предпоследне.е значение (последнее до Enter)
-        
-        printf("\n");
         
         if (comm == 't') {
-            testRun();
+            TestsolveSquare();
 
-            comm = clear_input_buffer();
+        } else {
+            solveSquare();   // Решение квадратного уравнения
+        // printf("Enter to continue");
         }
+
+        printf("\n\nNew equation: Enter\n");
+        printf("To the end: " BLUE "e" RESET "\n\n");
+
+        comm = clear_input_buffer();   // Получает предпоследнее значение (последнее до Enter)
+
     }
 }

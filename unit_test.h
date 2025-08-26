@@ -31,6 +31,4 @@ void test(Coefficients TestCoef, Roots ExpectRoots, int ExpectNumRoots);
 
 int readTest(FILE *tests, Coefficients* TestCoef, Roots* TestRoots, int* NumRoots);
 
-void testRun(void);
-
 #endif
