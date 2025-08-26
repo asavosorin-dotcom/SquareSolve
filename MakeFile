@@ -1,28 +1,28 @@
 FLAGS =  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wno-missing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror=vla -D_DEBUG -D_EJUDGE_CLIENT_SIDE
 OBJECTS = main.o clear.o input.o output.o solve.o solveCom.o unit_test.o
 
-all: prog1
+all: square
 
-prog: $(OBJECTS)
-    g++ $(FLAGS) $(OBJECTS) -o prog1
+square: $(OBJECTS)
+	g++ $(FLAGS) $(OBJECTS) -o square
 
 main.o: main.cpp
-    g++ $(FLAGS) -c main.cpp -o main.o
+	g++ $(FLAGS) -c main.cpp -o main.o
 
 clear.o: clear.cpp
-    g++ $(FLAGS) -c clear.cpp -o clear.o
+	g++ $(FLAGS) -c clear.cpp -o clear.o
 
 input.o: input.cpp
-    g++ $(FLAGS) -c input.cpp -o input.o
+	g++ $(FLAGS) -c input.cpp -o input.o
 
 output.o: output.cpp
-    g++ $(FLAGS) -c output.cpp -o output.o
+	g++ $(FLAGS) -c output.cpp -o output.o
 
 solve.o: solve.cpp
-    g++ $(FLAGS) -c solve.cpp -o solve.o
+	g++ $(FLAGS) -c solve.cpp -o solve.o
 
 solveCom.o: solveCom.cpp
-    g++ $(FLAGS) -c solveCom.cpp -o solveCom.o
+	g++ $(FLAGS) -c solveCom.cpp -o solveCom.o
 
 unit_test.o: unit_test.cpp
-    g++ $(FLAGS) -c unit_test.cpp -o unit_test.o
+	g++ $(FLAGS) -c unit_test.cpp -o unit_test.o
