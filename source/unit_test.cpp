@@ -22,11 +22,11 @@ void TestsolveSquare(void) // Команда выполняющая тесты
         // 1, -2,  1,  1,  1,  1,    // Один корень
         // 1,  2,  3,  0,  0,  0     // Нет корней
     // };
-//argc argv командная строка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     Tests testTab[4] = {0};
     int i = 0;
 
-    FILE *tests = fopen ("123.txt", "r");
+    FILE *tests = fopen ("tests.txt", "r");
     assert (tests);
 
     while (readTest(tests, &testTab[i].TestCoef, &testTab[i].TestRoots, &testTab[i].NumRoots)) { // Заносит данные из файла в testTab
