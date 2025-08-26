@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "struct.h"
+#include "clear.h"
 
 //-------------------------------------------------------------------------------------------
 //! Функция для запуска тестов из файла
@@ -29,5 +30,7 @@ void TestsolveSquare(void);
 void test(Coefficients TestCoef, Roots ExpectRoots, int ExpectNumRoots);
 
 int readTest(FILE *tests, Coefficients* TestCoef, Roots* TestRoots, int* NumRoots);
+
+void testRun(void);
 
 #endif

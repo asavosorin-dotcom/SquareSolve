@@ -71,3 +71,14 @@ int readTest(FILE *tests, Coefficients* TestCoef, Roots* TestRoots, int* NumRoot
 
     return 0;
 }
+
+void testRun(void) {
+    TestsolveSquare();
+    printf("\n\n");
+      
+    printf("New equation: Enter\n");
+    printf("To the end: " BLUE "e" RESET "\n");
+        
+    printf("\n");
+
+}
