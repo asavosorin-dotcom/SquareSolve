@@ -18,7 +18,9 @@
 
 int main(int argc, char *argv[])
 {
-    printf(CYAN "Solving square equations!!!\n\n" RESET);
+    printf(RED "Solving square equations!!!\n\n" RESET);
+    //printf("dsovjodpjgqe[ig]\n");
+
     int comm = 0;
 
     int opt = 0;
