@@ -1,4 +1,4 @@
-//#include <TXLib.h>
+// #include <TXLib.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,6 +24,16 @@ int main(int argc, char *argv[])
     int comm = 0;
 
     int opt = 0;
+    
+    if (argc == 4){
+
+        solveCom(argv); // Функция, которая запускает квадратку с аргументами из командной строки
+
+    // } else {
+        // printf("Invalif numbers of arguments\n");
+
+        // printf("\n\n");
+    }
 
     while ((opt = getopt(argc, argv, "st")) != -1) {
         switch (opt) {
@@ -36,18 +46,11 @@ int main(int argc, char *argv[])
 
     }
     
-    printf("\n\nNew equation: Enter\n");
+    printf("\n\nNew equation: " BLUE "Enter\n" RESET);
     printf("To the end: " BLUE "e" RESET "\n\n");
 
     comm = clear_input_buffer();
 
-    // if (argc != 4){
-    //     printf("Invalif numbers of arguments\n");
-    // } else {
-    //     solveCom(argv); // Функция, которая запускает квадратку с аргументами из командной строки
-
-    //     printf("\n\n");
-    // }
      
 
     //atoi
@@ -64,7 +67,7 @@ int main(int argc, char *argv[])
         // printf("Enter to continue");
         }
 
-        printf("\n\nNew equation: Enter\n");
+        printf("\n\nNew equation: " BLUE "Enter\n" RESET);
         printf("To the end: " BLUE "e" RESET "\n\n");
 
         comm = clear_input_buffer();   // Получает предпоследнее значение (последнее до Enter)
