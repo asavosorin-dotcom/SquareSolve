@@ -23,17 +23,19 @@ int main(int argc, char *argv[])
 
     while ((opt = getopt(argc, argv, "stf")) != -1) {
         switch (opt) {
-//optarg
+
             case 't':
                 TestsolveSquare();
                 break;
 
             case 's':
                 solveCom(argv + optind);
+                optind += 3;
                 break;
 
             case 'f':
                 solveFile(argv + optind);
+                optind += 1;
                 break;
 
             default:
