@@ -11,4 +11,7 @@ square: $(OBJECTS)
 %.o: %.cpp
 	g++ $(FLAGS) -c $< -o $@
 
+clean:
+	del -f *.o square
+
 # Замена строк и универсальные правила make
