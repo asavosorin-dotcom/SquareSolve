@@ -8,23 +8,7 @@ all: square
 square: $(OBJECTS)
 	g++ $(FLAGS) $(OBJECTS) -o square
 
-main.o: $(SOURCE_DIR)main.cpp
-	g++ $(FLAGS) -c source/main.cpp -o main.o
+%.o: %.cpp
+	g++ $(FLAGS) -c $< -o $@
 
-clear.o: $(SOURCE_DIR)clear.cpp
-	g++ $(FLAGS) -c @< -o @a
-
-input.o: $(SOURCE_DIR)input.cpp
-	g++ $(FLAGS) -c @< -o @a
-
-output.o: $(SOURCE_DIR)output.cpp
-	g++ $(FLAGS) -c @< -o @a
-
-solve.o: $(SOURCE_DIR)solve.cpp
-	g++ $(FLAGS) -c @< -o @a
-
-solveCom.o: $(SOURCE_DIR)solveCom.cpp
-	g++ $(FLAGS) -c @< -o @a
-
-unit_test.o: $(SOURCE_DIR)unit_test.cpp
-	g++ $(FLAGS) -c @< -o @a
+# «амена строк и универсальные правила make
