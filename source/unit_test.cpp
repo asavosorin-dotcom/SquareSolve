@@ -15,22 +15,21 @@ void TestsolveSquare(void) // Команда выполняющая тесты
         int NumRoots;
     } Tests; // Структура для прогона тестов c кэфами, корнями и числом корней
 
-    // Tests testTab[] = {
-    //  a   b   c   x1  x2  roots ТАБЛИЧКА!!!
-        // 1, -5,  6,  2,  3,  2,    // Два корня
-        // 0,  0,  0,  0,  0, -1,    // Удовлетворяют все корни
-        // 1, -2,  1,  1,  1,  1,    // Один корень
-        // 1,  2,  3,  0,  0,  0     // Нет корней
-    // };
 
-    Tests testTab[4] = {0};
+    Tests testTab[4] = {0}; // get_test_amount
     int i = 0;
 
     FILE *tests = fopen ("tests.txt", "r");
     assert (tests);
 
-    while (readTest(tests, &testTab[i].TestCoef, &testTab[i].TestRoots, &testTab[i].NumRoots)) { // Заносит данные из файла в testTab
-        i++;
+// Лучше for
+
+    // while (readTest(tests, &testTab[i].TestCoef, &testTab[i].TestRoots, &testTab[i].NumRoots)) { // Заносит данные из файла в testTab
+    //     i++;
+    // }
+
+    for (; i < 4; i++) {
+        readTest(tests, &testTab[i].TestCoef, &testTab[i].TestRoots, &testTab[i].NumRoots);
     }
 
     fclose(tests);
@@ -64,10 +63,12 @@ int readTest(FILE *tests, Coefficients* TestCoef, Roots* TestRoots, int* NumRoot
 {
     int numVar = fscanf(tests, "%lg  %lg  %lg  %lg  %lg  %d", &TestCoef->a, &TestCoef->b, &TestCoef->c, &TestRoots->x1, &TestRoots->x2, NumRoots);
 
-    if (numVar == 6)
-    {
-        return 1;
-    }
+    // if (numVar == 6)
+    // {
+    //     return 1;
+    // }
 
     return 0;
 }
+
+// void get_test_amount(Tests* )

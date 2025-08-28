@@ -10,21 +10,21 @@
 int solveSquare(void){
     Coefficients Coef = {0, 0, 0};
     Roots Roots = {0, 0};
-    //Структура, делаешь структуру квадратного уравнения
+    //РљСЂР°СЃРёРІРѕРµ СЂРµС€РµРЅРёРµ СЃ РїСЂРёРЅС‚С„Р°РјРё!!!!!!!!!!!!!!!!!!!!!!!!
 
     printf("Enter the equation in the format: ax^2 + bx + c = 0\n");
 
-    if (!input_coef(&Coef)){ // Считывание данных
-        return 0; // Прерывает решение уравнения при неправильном вводе
+    if (!input_coef(&Coef)){ // РЎС‡РёС‚С‹РІР°РЅРёРµ РґР°РЅРЅС‹С…
+        return 0; // РџСЂРµСЂС‹РІР°РµС‚ СЂРµС€РµРЅРёРµ СѓСЂР°РІРЅРµРЅРёСЏ РїСЂРё РЅРµРїСЂР°РІРёР»СЊРЅРѕРј РІРІРѕРґРµ
     }
 
     int num_of_roots = roots(&Coef, &Roots);
-    prnt_roots(&num_of_roots, &Roots.x1, &Roots.x2); // Вывод корней
+    prnt_roots(&num_of_roots, &Roots); // Р’С‹РІРѕРґ РєРѕСЂРЅРµР№
 
     return 1;
 }
 
-int comparison(double num1, double num2) // 1 - если num1 > num2
+int comparison(double num1, double num2) // 1 - РµСЃР»Рё num1 > num2
 {
     double difference = num1 - num2;
 
@@ -38,7 +38,7 @@ int comparison(double num1, double num2) // 1 - если num1 > num2
         return -1;
 }
 
-int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное уравнение
+int roots(Coefficients *Coef, Roots *Roots) // Р РµС€Р°РµС‚ РєРІР°РґСЂР°С‚РЅРѕРµ СѓСЂР°РІРЅРµРЅРёРµ
 {
 
     double a = Coef -> a;
@@ -54,7 +54,7 @@ int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное уравнение
             *x1 = *x2 = -c / b;
             return ONE_ROOT;
         }
-    } else { // уравнение квадратное c = 0 !!!!!!!
+    } else { // СѓСЂР°РІРЅРµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРµ c = 0 !!!!!!!
         
         if (c == 0){
             *x1 = 0;
@@ -67,7 +67,7 @@ int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное уравнение
 
         double disc = b * b - 4 * a * c;
 
-        if (comparison(disc, 0) == 0){ //D = 0 в пределах погрешности
+        if (comparison(disc, 0) == 0){ //D = 0 РІ РїСЂРµРґРµР»Р°С… РїРѕРіСЂРµС€РЅРѕСЃС‚Рё
             *x1 = *x2 = -b / (2 *a);
             return ONE_ROOT;
 
@@ -86,7 +86,7 @@ int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное уравнение
     }
 }
 
-void minax(double* x1, double* x2) //!< Расставляет корни по возрастранию
+void minax(double* x1, double* x2) //!< Р Р°СЃСЃС‚Р°РІР»СЏРµС‚ РєРѕСЂРЅРё РїРѕ РІРѕР·СЂР°СЃС‚СЂР°РЅРёСЋ
 {
     double minnum = min(*x1, *x2);
     double maxnum = max(*x1, *x2);
@@ -94,17 +94,17 @@ void minax(double* x1, double* x2) //!< Расставляет корни по возрастранию
     *x2 = maxnum;
 }
 
-double min(double a, double b) //!< Минимальное из двух чисел
+double min(double a, double b) //!< РњРёРЅРёРјР°Р»СЊРЅРѕРµ РёР· РґРІСѓС… С‡РёСЃРµР»
 {
     return (comparison(a, b) == -1) ? a : b;
 }
 
-double max(double a, double b) //!< Максимальное из двух чисел
+double max(double a, double b) //!< РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РёР· РґРІСѓС… С‡РёСЃРµР»
 {
     return (comparison(a, b) == 1) ? a : b;
 }
 
-double solveLine(double a, double b) //!< Решение линейного уравнения вида ax + b
+double solveLine(double a, double b) //!< Р РµС€РµРЅРёРµ Р»РёРЅРµР№РЅРѕРіРѕ СѓСЂР°РІРЅРµРЅРёСЏ РІРёРґР° ax + b
 {
     assert(a != 0);
     return -b / a;

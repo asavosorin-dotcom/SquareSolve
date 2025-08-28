@@ -10,55 +10,44 @@
 #include "unit_test.h"
 #include "clear.h"
 #include "solveCom.h"
+#include "solveFile.h"
 
-//getopts
-//make
-//WSL
-//g++, warnings
 
 int main(int argc, char *argv[])
 {
-    printf(RED "Solving square equations!!!\n\n" RESET);
-    //printf("dsovjodpjgqe[ig]\n");
+    printf(CYAN "Solving square equations!!!\n\n" RESET);
 
     int comm = 0;
-
     int opt = 0;
-    
-    if (argc == 4){
+    // FILE *output = stdout;
 
-        solveCom(argv); // Функция, которая запускает квадратку с аргументами из командной строки
-
-    // } else {
-        // printf("Invalif numbers of arguments\n");
-
-        // printf("\n\n");
-    }
-
-    while ((opt = getopt(argc, argv, "st")) != -1) {
+    while ((opt = getopt(argc, argv, "stf")) != -1) {
         switch (opt) {
-
+//optarg
             case 't':
-            TestsolveSquare();
+                TestsolveSquare();
                 break;
 
-        }
+            case 's':
+                solveCom(argv + optind);
+                break;
 
+            case 'f':
+                solveFile(argv + optind);
+                break;
+
+            default:
+                return 1;
+        }
     }
-    
+
     printf("\n\nNew equation: " BLUE "Enter\n" RESET);
     printf("To the end: " BLUE "e" RESET "\n\n");
 
     comm = clear_input_buffer();
 
-     
-
-    //atoi
-
-    //error, choose option
-
     while (comm != 'e'){ // Решает уравнения, пока не EOF
-        
+
         if (comm == 't') {
             TestsolveSquare();
 
@@ -70,7 +59,7 @@ int main(int argc, char *argv[])
         printf("\n\nNew equation: " BLUE "Enter\n" RESET);
         printf("To the end: " BLUE "e" RESET "\n\n");
 
-        comm = clear_input_buffer();   // Получает предпоследнее значение (последнее до Enter)
+        comm = clear_input_buffer();   // Получает предпоследнее значение (до Enter)
 
     }
 }
