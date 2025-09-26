@@ -9,7 +9,7 @@
 
 int solveSquare(void){
     Coefficients Coef = {0, 0, 0};
-    Roots Roots = {0, 0};
+    Root Roots = {0, 0};
     //Красивое решение с принтфами!!!!!!!!!!!!!!!!!!!!!!!!
 
     printf("Enter the equation in the format: ax^2 + bx + c = 0\n");
@@ -38,7 +38,7 @@ int comparison(double num1, double num2) // 1 - если num1 > num2
         return -1;
 }
 
-int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное уравнение
+int roots(Coefficients *Coef, Root *Roots) // Решает квадратное уравнение
 {
 
     double a = Coef -> a;
@@ -47,7 +47,7 @@ int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное
     double *x1 = &Roots -> x1;
     double *x2 = &Roots -> x2;
 
-    if (comparison(a, 0) == 0){ // a == 0
+    if (comparison(a, 0) == 0) { // a == 0
         if (comparison(b, 0) == 0) // b == 0
             return (comparison(c, 0) == 0) ? ERR : ZERO_ROOTS;
         else {
@@ -56,7 +56,7 @@ int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное
         }
     } else { // уравнение квадратное c = 0 !!!!!!!
         
-        if (c == 0){
+        if (!comparison(c, 0)) {
             *x1 = 0;
             *x2 = solveLine(a, b);
 
@@ -67,11 +67,11 @@ int roots(Coefficients *Coef, Roots *Roots) // Решает квадратное
 
         double disc = b * b - 4 * a * c;
 
-        if (comparison(disc, 0) == 0){ //D = 0 в пределах погрешности
+        if (comparison(disc, 0) == 0) { //D = 0 в пределах погрешности
             *x1 = *x2 = -b / (2 *a);
             return ONE_ROOT;
 
-        } else if (disc < -1 * ERRATE){
+        } else if (disc < -1 * ERRATE) {
             return ZERO_ROOTS;
 
         } else {
@@ -106,6 +106,6 @@ double max(double a, double b) //!< Максимальное из двух чи�
 
 double solveLine(double a, double b) //!< Решение линейного уравнения вида ax + b
 {
-    assert(a != 0);
+    assert(comparison(a, 0)!= 0);
     return -b / a;
 }

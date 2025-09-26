@@ -14,6 +14,6 @@ typedef struct {
 typedef struct { 
     double x1;
     double x2;
-} Roots;
+} Root;
 
 #endif 

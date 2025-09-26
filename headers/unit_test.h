@@ -27,8 +27,8 @@ void TestsolveSquare(void);
 //!
 //-------------------------------------------------------------------------------------------
 
-void test(Coefficients TestCoef, Roots ExpectRoots, int ExpectNumRoots);
+void test(Coefficients TestCoef, Root ExpectRoots, int ExpectNumRoots);
 
-int readTest(FILE *tests, Coefficients* TestCoef, Roots* TestRoots, int* NumRoots);
+int readTest(FILE *tests, Coefficients* TestCoef, Root* TestRoots, int* NumRoots);
 
 #endif

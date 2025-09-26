@@ -14,6 +14,6 @@
 //! @note Выводит корни в формате "x = "
 //-------------------------------------------------------------------------------------------
 
-void prnt_roots(int* num_of_roots, Roots* Roots);
+void prnt_roots(int* num_of_roots, Root* Roots);
 
 #endif

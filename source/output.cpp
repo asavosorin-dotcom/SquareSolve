@@ -7,7 +7,7 @@
 
 //Escape последовательности, цветной.
 
-void prnt_roots(int* num_of_roots, Roots* Roots) // Вывод корней
+void prnt_roots(int* num_of_roots, Root* Roots) // Вывод корней
 
 // Передавать через структуры
 {
@@ -30,5 +30,9 @@ void prnt_roots(int* num_of_roots, Roots* Roots) // Вывод корней
         case ERR:
             printf("All roots satisfy the equation\n");
             break;
+
+        default:
+            fprintf(stderr, "CRITICAL ERROR\n");
+            exit(1);
     }
 }
